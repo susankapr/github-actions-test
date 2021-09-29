@@ -10,6 +10,12 @@ jobs:
         run: |
           pwd
           ls -a
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
+          echo "{{ github.token }}"
+      - name: Checkout
+        uses: actions/checkout@v1
       - name: Simple JS Actions
         id: greet
         uses: actions/hello-world-javascript-action@main
