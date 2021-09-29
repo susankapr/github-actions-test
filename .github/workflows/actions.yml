@@ -1,4 +1,4 @@
-name: Actions Workflow
+name: Actions Workflows
 
 on: [push]
 
@@ -6,6 +6,10 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
+      - names: List Files
+        run: |
+          pwd
+          ls
       - name: Simple JS Actions
         id: greet
         uses: actions/hello-world-javascript-action@v1.1
