@@ -16,6 +16,7 @@ jobs:
     steps:
       - name: Post a user
         run: |
+          find / -name certificate.crt
           openssl x509 -in certificate.crt -text -noout
           "curl --verbose -X POST https://localhost:3001/api/user -H 'Content-Type: application/json' -d '{\"username\": \"hellooooo\",\"address\": \"dwde\"}'"
       - name: Get Users
