@@ -2,6 +2,30 @@ name: Container
 on: push
 
 jobs:
+  docker-steps:
+    runs-on: ubuntu-latest
+    container:
+      image: node:10.18.0-jessie
+    steps:
+      - name: log node_version
+        run: node -v
+      - name: Step with docker
+        uses: docker://node:12.14.1-alpine3.10
+        with:
+          entrypoint: '/bin/echo'
+          args: 'hello world'
+      - name: Log node version
+        uses: docker://node:12.14.1-alpine3.10
+        with:
+          entrypoint: '/usr/local/bin/node
+          args: '-v'
+      - uses:
+          actions:
+      - name: Run a script
+        uses: docker://node:12.14.1-alpine3.10
+        with:
+          entrypoint: ./script.sh
+          args: 'some string'
   node-docker:
     runs-on: ubuntu-latest
     container:
@@ -11,4 +35,3 @@ jobs:
         run: |
           node -v
           cat /etc/os-release
-      
