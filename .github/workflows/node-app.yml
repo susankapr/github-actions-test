@@ -14,6 +14,11 @@ jobs:
         with:
           entrypoint: '/bin/echo'
           args: 'hello world'
+      - name: Log node version
+        uses: docker://node:12.14.1-alpine3.10
+        with:
+          entrypoint: '/usr/local/bin/node'
+          args: '-v'
   node-docker:
     runs-on: ubuntu-latest
     services:
